@@ -5,6 +5,9 @@ import Login from '../Pages/Login/Login'
 import SignUp from '../Pages/SignUp/SignUp'
 import RoomDetails from '../Pages/RoomDetails/RoomDetails'
 import PrivateRoute from './PrivateRoute'
+import DashboardLayout from '../layouts/DashBoardLayout'
+import AddRoom from '../Pages/Dahsboard/AddRoom'
+import { getRoom } from '../api/rooms'
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +20,8 @@ export const router = createBrowserRouter([
       },
       {
         path : "/room/:id",
-        element : <PrivateRoute><RoomDetails></RoomDetails></PrivateRoute>
+        element : <PrivateRoute><RoomDetails></RoomDetails></PrivateRoute>,
+        loader : ({params}) => getRoom(params.id)
       }
     ]
   },
@@ -28,5 +32,15 @@ export const router = createBrowserRouter([
   {
     path : "/signup",
     element : <SignUp></SignUp>
+  },
+  {
+    path :"/dashboard",
+    element : <DashboardLayout></DashboardLayout>,
+    children : [
+      {
+        path : "add-room",
+        element : <AddRoom/>
+      }
+    ]
   }
 ])

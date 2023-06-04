@@ -10,7 +10,9 @@ const RoomReservation = () => {
         <div className="font-light text-neutral-800">night</div>
       </div>
       <hr />
+      <div className="flex justify-center">
       <DatePicker></DatePicker>
+      </div>
       <hr />
       <div className="p-4">
         <Button label="Reserve"></Button>

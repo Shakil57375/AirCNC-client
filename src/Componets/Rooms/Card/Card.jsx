@@ -3,7 +3,7 @@ import HeartButton from '../Button/HeartButton'
 
 const Card = ({room}) => {
   return (
-    <Link to={`/room/${1}`}>
+    <Link to={`/room/${room._id}`}>
     <div className='col-span-1 cursor-pointer group'>
       <div className='flex flex-col gap-2 w-full'>
         <div
